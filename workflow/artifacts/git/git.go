@@ -61,9 +61,6 @@ func (g *ArtifactDriver) auth(sshUser string) (func(), transport.AuthMethod, err
 		if g.InsecureIgnoreHostKey {
 			auth.HostKeyCallback = ssh.InsecureIgnoreHostKey()
 		}
-		if g.InsecureIgnoreHostKey {
-			auth.HostKeyCallback = ssh.InsecureIgnoreHostKey()
-		}
 		return func() { _ = os.Remove(privateKeyFile.Name()) }, auth, nil
 	}
 	if g.Username != "" || g.Password != "" {
